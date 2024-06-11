@@ -1,0 +1,53 @@
+<p-table
+    #tblLibrosListar
+    [value]="libros"
+    [paginator]="true"
+    [rows]="5"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [globalFilterFields]="['idLibro', 'titulo', 'edicion', 'paginas','idEditorial','idAutor','idCategoria','idIdioma']"
+    [rowsPerPageOptions]="[5, 10, 20]"
+
+>   <ng-template pTemplate="caption">
+    <div class="flex justify-content-between">
+        <p-button (onClick)="onClickAgregarLibro()" label="Agregar" icon="pi pi-plus" />
+        <p-iconField iconPosition="left" class="ml-auto">
+            <p-inputIcon>
+                <i class="pi pi-search"></i>
+            </p-inputIcon>
+            <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
+                placeholder="Barra de búsqueda" />
+        </p-iconField>
+    </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th >ID</th>
+            <th >Titulo</th>
+            <th >Edicion</th>
+            <th >Paginas</th>
+            <th >IdEditorial</th>
+            <th >IdAutor</th>
+            <th >IdCategoria</th>   
+            <th >IdIdioma</th>
+            <th ></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-libro>
+        <tr>
+            <td>{{ libro.idLibro }}</td>
+            <td>{{ libro.titulo }}</td>
+            <td>{{ libro.edicion }}</td>
+            <td>{{ libro.paginas }}</td>
+            <td>{{ libro.idEditorial }}</td>
+            <td>{{ libro.idAutor }}</td>
+            <td>{{ libro.idCategoria }}</td>
+            <td>{{ libro.idIdioma }}</td>
+            <td>
+                <p-button (onClick) = "onClickVerLibro(libro)" [style]="buttonStyle" icon="pi pi-eye" size="small" [rounded]="true" severity="info" />
+                <p-button (onClick) = "onClickEditarLibro(libro)" [style]="buttonStyle" icon="pi pi-pencil" size="small" [rounded]="true" severity="warning" />
+                <p-button [style]="buttonStyle" icon="pi pi-trash" size="small" [rounded]="true" severity="danger" /> 
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

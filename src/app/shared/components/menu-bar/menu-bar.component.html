@@ -1,0 +1,15 @@
+<div class="card">
+    <p-menubar [model]="itemsMenuBar">
+        <ng-template pTemplate="start">
+            <a href="/">
+                <img src="assets/img/libreria_icon.png" width="60px">
+            </a>
+        </ng-template>
+        <ng-template pTemplate="end">
+            <div class="card flex justify-content-center">
+                <p-menu #menu [model]="itemsMenuUsuario" [popup]="true" />
+                <p-button (click)="menu.toggle($event)" icon="pi pi-user" [rounded]="true" label="Grupo 4" [text]="true" size="large"/>
+            </div>
+        </ng-template>
+    </p-menubar>    
+</div>
