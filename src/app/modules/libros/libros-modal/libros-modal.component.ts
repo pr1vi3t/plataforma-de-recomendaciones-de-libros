@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { FloatLabelModule } from 'primeng/floatlabel';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { TYPE_MODAL_VER } from '../../../shared/utils/constants';
 
 @Component({
   selector: 'app-libros-modal',
@@ -13,6 +15,13 @@ import { FloatLabelModule } from 'primeng/floatlabel';
   styleUrl: './libros-modal.component.scss'
 })
 export class LibrosModalComponent implements OnInit{
+
+  constructor(
+    private ref: DynamicDialogRef,
+    private config: DynamicDialogConfig
+  ){
+
+  }
 
   libros: ILibro = {
     idLibro: 0,
@@ -26,7 +35,14 @@ export class LibrosModalComponent implements OnInit{
   };
 
   ngOnInit(): void {
-   
-  }
+    console.log('LibrosModalComponent',this.config.data);
+    if(this.config.data.data){
+     this.libros = this.config.data.data;
+    }
+   }
+ 
+   isModoVer():boolean{
+     return this.config.data.typeModal == TYPE_MODAL_VER
+   }
 
 }

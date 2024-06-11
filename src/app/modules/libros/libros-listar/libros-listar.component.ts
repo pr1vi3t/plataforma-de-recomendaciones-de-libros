@@ -61,7 +61,7 @@ export class LibrosListarComponent {
     this.dialogService.open(LibrosModalComponent,
       {
         header:'Crear un Libro', 
-        width: '70vw',
+        width: '80vw',
         height: '80vh',
         templates: {
           footer: FooterModalComponent
@@ -79,14 +79,14 @@ export class LibrosListarComponent {
     this.dialogService.open(LibrosModalComponent,
       {
         header:'Crear un Libro', 
-        width: '70vw',
+        width: '80vw',
         height: '80vh',
         templates: {
           footer: FooterModalComponent
         },
         data: {
           typeModal: TYPE_MODAL_VER,
-          data: undefined
+          data: libro
         }
       }
     );
@@ -97,14 +97,14 @@ export class LibrosListarComponent {
     this.dialogService.open(LibrosModalComponent,
       {
         header:'Crear un Libro', 
-        width: '70vw',
+        width: '80vw',
         height: '80vh',
         templates: {
           footer: FooterModalComponent
         },
         data: {
           typeModal: TYPE_MODAL_EDITAR,
-          data: undefined
+          data: libro
         }
       }
     );

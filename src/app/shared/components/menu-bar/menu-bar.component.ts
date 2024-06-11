@@ -67,6 +67,10 @@ export class MenuBarComponent {
               icon: 'pi pi-pencil',
               routerLink: '/principal/autores'
             },
+            {
+              label: 'Editoriales',
+              icon: 'pi pi-file-edit'
+            },
             ]
         },
         {

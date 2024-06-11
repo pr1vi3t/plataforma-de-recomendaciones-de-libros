@@ -2,13 +2,13 @@
     <div class="grid">
         <div class="col-12 lg:col-6 mt-5">
             <p-floatLabel>
-                <input class="w-full" pInputText id="titulo" [(ngModel)]="libros.titulo" />
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="titulo" [(ngModel)]="libros.titulo" />
                 <label for="titulo">Título</label>
             </p-floatLabel>
         </div>  
         <div class="col-12 lg:col-6 mt-5">
             <p-floatLabel>
-                <input class="w-full" pInputText id="edicion" [(ngModel)]="libros.edicion" />
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="edicion" [(ngModel)]="libros.edicion" />
                 <label for="edicion">Edición</label>
             </p-floatLabel>
         </div>
@@ -17,13 +17,13 @@
     <div class="grid">
         <div class="col-12 lg:col-6 mt-5">
             <p-floatLabel>
-                <input class="w-full" pInputText id="paginas" [(ngModel)]="libros.paginas" />
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="paginas" [(ngModel)]="libros.paginas" />
                 <label for="paginas">Páginas</label>
             </p-floatLabel>
         </div>
         <div class="col-12 lg:col-6 mt-5">
             <p-floatLabel>
-                <input class="w-full" pInputText id="idAutor" [(ngModel)]="libros.idAutor" />
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idAutor" [(ngModel)]="libros.idAutor" />
                 <label for="idAutor">ID Autor</label>
             </p-floatLabel>
         </div>
@@ -32,13 +32,13 @@
     <div class="grid">
         <div class="col-12 lg:col-6 mt-5">
             <p-floatLabel>
-                <input class="w-full" pInputText id="idCategoria" [(ngModel)]="libros.idCategoria" />
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idCategoria" [(ngModel)]="libros.idCategoria" />
                 <label for="idCategoria">ID Categoria</label>
             </p-floatLabel>
         </div>
         <div class="col-12 lg:col-6 mt-5">
             <p-floatLabel>
-                <input class="w-full" pInputText id="idIdioma" [(ngModel)]="libros.idIdioma" />
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idIdioma" [(ngModel)]="libros.idIdioma" />
                 <label for="idIdioma">ID Idioma</label>
             </p-floatLabel>
         </div>
@@ -47,7 +47,7 @@
     <div class="grid">
         <div class="col-12 lg:col-12 mt-5">
             <p-floatLabel>
-                <input class="w-full" pInputText id="idEditorial" [(ngModel)]="libros.idEditorial" />
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idEditorial" [(ngModel)]="libros.idEditorial" />
                 <label for="idEditorial">ID Editorial</label>
             </p-floatLabel>
         </div>
