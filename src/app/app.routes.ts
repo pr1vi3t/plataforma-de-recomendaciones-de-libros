@@ -3,10 +3,16 @@ import { MainLayoutComponent } from './shared/layouts/main-layout/main-layout.co
 import { HomeComponent } from './pages/home/home.component';
 import { LibrosListarComponent } from './modules/libros/libros-listar/libros-listar.component';
 import { AutoresListarComponent } from './modules/autores/autores-listar/autores-listar.component';
+import { EditorialesListarComponent } from './modules/editoriales/editoriales-listar/editoriales-listar.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthCallbackComponent } from './shared/components/auth-callback/auth-callback.component';
 
 export const routes: Routes = [
     {
-        path: '', pathMatch: 'full', redirectTo: 'principal'
+        path: '', pathMatch: 'full', redirectTo: 'login'
+    },
+    {
+        path: 'login', component: LoginComponent
     },
     {
         path: 'principal', component: MainLayoutComponent, children:[
@@ -21,8 +27,14 @@ export const routes: Routes = [
             },
             {
                 path: 'autores', component: AutoresListarComponent
+            },
+            {
+                path: 'editoriales', component: EditorialesListarComponent
             }
         ]
-
+    },
+    {
+        path: 'auth-callback', component: AuthCallbackComponent
     }
+    
 ];

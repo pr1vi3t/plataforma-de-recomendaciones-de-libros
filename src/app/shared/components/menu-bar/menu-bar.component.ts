@@ -4,6 +4,7 @@ import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { ToastModule } from 'primeng/toast';
+import { GoogleApiService } from '../../../core/services/google-api.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -16,19 +17,40 @@ export class MenuBarComponent {
 
   itemsMenuBar: MenuItem[] | undefined;
   itemsMenuUsuario: MenuItem[] | undefined;
+  userName: string = '';
+  profileImageUrl: string = '';
 
-  ngOnInit() {
+  constructor(
+    private googleApiService: GoogleApiService
+    ){}
+
+  async ngOnInit() {
+    try {
+      const token = localStorage.getItem('googleAuthToken');
+      if (token) {
+        const userInfo = await this.googleApiService.getUserInfo(token);
+        console.log(userInfo);
+        this.userName = userInfo.name;
+        this.profileImageUrl = userInfo.picture; 
+      } else {
+        console.error('Token de autenticación no encontrado.');
+      }
+    } catch (error) {
+      console.error('Error al obtener la información del usuario:', error);
+    };
+    
     this.itemsMenuUsuario = [
       {
-        label: 'Options',
+        label: 'Opciones',
         items: [
           {
-            label: 'Refresh',
-            icon: 'pi pi-refresh'
+            label: 'Perfil',
+            icon: 'pi pi-user',
+            routerLink: '/principal/perfil'
           },
           {
-            label: 'Export',
-            icon: 'pi pi-upload'
+            label: 'Cerrar Sesión',
+            icon: 'pi pi-sign-out'
           }
         ]
       }
@@ -41,7 +63,7 @@ export class MenuBarComponent {
             items: [
                 {
                     label: 'Iniciar Sesion',
-                    icon: 'pi pi-lock-open'
+                    icon: 'pi pi-sign-in'
                 },
                 {
                     label: 'Crear Cuenta',
@@ -69,7 +91,8 @@ export class MenuBarComponent {
             },
             {
               label: 'Editoriales',
-              icon: 'pi pi-file-edit'
+              icon: 'pi pi-file-edit',
+              routerLink: '/principal/editoriales'
             },
             ]
         },

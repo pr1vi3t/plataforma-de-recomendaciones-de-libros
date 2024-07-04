@@ -26,30 +26,30 @@ export class LibrosListarComponent {
   @ViewChild('tblLibrosListar') tblLibrosListar: Table | undefined;
 
   buttonStyle= {
-    width: '2.3rem',
-    height: '2.3rem',
+    width: '3.3rem',
+    height: '3.3rem',
     'margin-left': '0.5rem'
   }
 
   libros: ILibro[] = [{
-    idLibro: 1,
-    titulo: 'Harry Potter',
-    edicion: '1997',
-    paginas: '640',
-    idEditorial: '201501',
-    idAutor: '5',
-    idCategoria: '7',
-    idIdioma: '3'
+    IdLibro: 1,
+    Titulo: 'Harry Potter',
+    Edicion: '1997',
+    Paginas: '640',
+    IdEditorial: 'Norma',
+    IdAutor: 'Joanne Rowling',
+    IdCategoria: 'Fantasia',
+    IdIdioma: 'Español'
   },
   {
-    idLibro: 2,
-    titulo: 'Mi planta de naranja lima',
-    edicion: '1976',
-    paginas: '415',
-    idEditorial: '201502',
-    idAutor: '75',
-    idCategoria: '5',
-    idIdioma: '3'
+    IdLibro: 2,
+    Titulo: 'Mi planta de naranja lima',
+    Edicion: '1976',
+    Paginas: '415',
+    IdEditorial: 'Norma',
+    IdAutor: 'Jose Mauro de Vasconcelos',
+    IdCategoria: 'Drama',
+    IdIdioma: 'Portuguez'
   }
 ] 
   applyFilterGlobal($event:any, stringVal:string) {
@@ -60,9 +60,9 @@ export class LibrosListarComponent {
     console.log('onClickAgregarLibro');
     this.dialogService.open(LibrosModalComponent,
       {
-        header:'Crear un Libro', 
+        header:'Agregar un Libro', 
         width: '80vw',
-        height: '80vh',
+        height: '65vh',
         templates: {
           footer: FooterModalComponent
         },
@@ -78,9 +78,9 @@ export class LibrosListarComponent {
     console.log('onClickVerLibro', libro);
     this.dialogService.open(LibrosModalComponent,
       {
-        header:'Crear un Libro', 
+        header:'Ver un Libro', 
         width: '80vw',
-        height: '80vh',
+        height: '65vh',
         templates: {
           footer: FooterModalComponent
         },
@@ -96,9 +96,9 @@ export class LibrosListarComponent {
     console.log('onClickEditarLibro', libro);
     this.dialogService.open(LibrosModalComponent,
       {
-        header:'Crear un Libro', 
+        header:'Editar un Libro', 
         width: '80vw',
-        height: '80vh',
+        height: '65vh',
         templates: {
           footer: FooterModalComponent
         },

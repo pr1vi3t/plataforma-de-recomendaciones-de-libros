@@ -1,0 +1,64 @@
+
+        <p-table
+        #tblEditorialesListar
+        [value]="editoriales"
+        [paginator]="true"
+        [rows]="5"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="['ID', 'Nombre', 'PaisOrigen', 'CEO']"
+        [rowsPerPageOptions]="[5, 10, 20]"
+    >
+    
+    <ng-template pTemplate="caption">
+        <div class="flex justify-content-between">
+            <p-button (onClick)="onClickAgregarEditorial()" label="Agregar" icon="pi pi-plus" severity="help" class="margen"/>
+                
+            <p-iconField iconPosition="left" class="ml-auto">
+                <p-inputIcon>
+                            <i class="pi pi-search"></i>
+                </p-inputIcon>
+                <input 
+                            pInputText 
+                            type="text" 
+                            (input)="applyFilterGlobal($event, 'contains')" 
+                            placeholder="Barra de búsqueda" class="size"/> 
+            </p-iconField>       
+        </div>
+    </ng-template>
+    
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="idEditorial">idEditorial<p-sortIcon field="idEditorial"/></th>
+                <th pSortableColumn="Nombre">Nombre<p-sortIcon field="Nombre"/></th>
+                <th pSortableColumn="PaisOrigen">Pais Origen<p-sortIcon field="PaisOrigen"/></th>
+                <th pSortableColumn="CEO">CEO<p-sortIcon field="CEO"/></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-editorial>
+            <tr>
+                <td>{{ editorial.idEditorial }}</td>
+                <td>{{ editorial.Nombre }}</td>
+                <td>{{ editorial.PaisOrigen }}</td>
+                <td>{{ editorial.CEO }}</td>
+                <td>
+                    <div class="grid">
+                        <div class="col-12 lg:col-4 ">
+                            <p-button (onClick)="onClickVerEditorial(editorial)" [style]="buttonStyle" icon="pi pi-eye" [rounded]="true" severity="info" [text]="true"/>
+    
+                        </div>
+                        <div class="col-12 lg:col-4 ">
+                            <p-button (onClick)="onClickEditarEditorial(editorial)" [style]="buttonStyle" icon="pi pi-pencil" [rounded]="true" severity="warning" [text]="true"/>
+    
+                        </div>
+                        <div class="col-12 lg:col-4">
+                            <p-button [style]="buttonStyle" icon="pi pi-trash" [rounded]="true" severity="danger" [text]="true"/> 
+    
+                        </div>
+                    </div>
+                    
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    

@@ -4,49 +4,52 @@
     [paginator]="true"
     [rows]="5"
     [tableStyle]="{ 'min-width': '50rem' }"
-    [globalFilterFields]="['idLibro', 'titulo', 'edicion', 'paginas','idEditorial','idAutor','idCategoria','idIdioma']"
+    [globalFilterFields]="['IdLibro', 'Titulo', 'Edicion', 'Paginas','IdEditorial','IdAutor','IdCategoria','IdIdioma']"
     [rowsPerPageOptions]="[5, 10, 20]"
 
 >   <ng-template pTemplate="caption">
     <div class="flex justify-content-between">
-        <p-button (onClick)="onClickAgregarLibro()" label="Agregar" icon="pi pi-plus" severity="help"/>
+        <p-button (onClick)="onClickAgregarLibro()" label="Agregar" icon="pi pi-plus" severity="help" class="margen"/>
         <p-iconField iconPosition="left" class="ml-auto">
             <p-inputIcon>
                 <i class="pi pi-search"></i>
             </p-inputIcon>
-            <input pInputText type="text" (input)="applyFilterGlobal($event, 'contains')"
-                placeholder="Barra de búsqueda" />
+            <input 
+                            pInputText 
+                            type="text" 
+                            (input)="applyFilterGlobal($event, 'contains')" 
+                            placeholder="Barra de búsqueda" class="size"/> 
         </p-iconField>
     </div>
     </ng-template>
 
     <ng-template pTemplate="header">
-        <tr>
-            <th >ID</th>
-            <th >Titulo</th>
-            <th >Edicion</th>
-            <th >Paginas</th>
-            <th >IdEditorial</th>
-            <th >IdAutor</th>
-            <th >IdCategoria</th>   
-            <th >IdIdioma</th>
+        <tr>    
+            <th pSortableColumn="IdLibro">IdLibro<p-sortIcon field="IdLibro"/></th>
+            <th pSortableColumn="Titulo">Titulo<p-sortIcon field="Titulo"/></th>
+            <th pSortableColumn="Edicion">Edicion<p-sortIcon field="Edicion"/></th>
+            <th pSortableColumn="Paginas">Paginas<p-sortIcon field="Paginas"/></th>
+            <th pSortableColumn="IdEditorial">IdEditorial<p-sortIcon field="IdEditorial"/></th>
+            <th pSortableColumn="IdAutor">IdAutor<p-sortIcon field="IdAutor"/></th>
+            <th pSortableColumn="IdCategoria">IdCategoria<p-sortIcon field="IdCategoria"/></th>   
+            <th pSortableColumn="IdIdioma">IdIdioma<p-sortIcon field="IdIdioma"/></th>
             <th ></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-libro>
         <tr>
-            <td>{{ libro.idLibro }}</td>
-            <td>{{ libro.titulo }}</td>
-            <td>{{ libro.edicion }}</td>
-            <td>{{ libro.paginas }}</td>
-            <td>{{ libro.idEditorial }}</td>
-            <td>{{ libro.idAutor }}</td>
-            <td>{{ libro.idCategoria }}</td>
-            <td>{{ libro.idIdioma }}</td>
+            <td>{{ libro.IdLibro }}</td>
+            <td>{{ libro.Titulo }}</td>
+            <td>{{ libro.Edicion }}</td>
+            <td>{{ libro.Paginas }}</td>
+            <td>{{ libro.IdEditorial }}</td>
+            <td>{{ libro.IdAutor }}</td>
+            <td>{{ libro.IdCategoria }}</td>
+            <td>{{ libro.IdIdioma }}</td>
             <td>
-                <p-button (onClick) = "onClickVerLibro(libro)" [style]="buttonStyle" icon="pi pi-eye" size="small" [rounded]="true" severity="info" />
-                <p-button (onClick) = "onClickEditarLibro(libro)" [style]="buttonStyle" icon="pi pi-pencil" size="small" [rounded]="true" severity="warning" />
-                <p-button [style]="buttonStyle" icon="pi pi-trash" size="small" [rounded]="true" severity="danger" /> 
+                <p-button (onClick) = "onClickVerLibro(libro)" [style]="buttonStyle" icon="pi pi-eye" [rounded]="true" severity="info" [text]="true" />
+                <p-button (onClick) = "onClickEditarLibro(libro)" [style]="buttonStyle" icon="pi pi-pencil" [rounded]="true" severity="warning" [text]="true" />
+                <p-button [style]="buttonStyle" icon="pi pi-trash" [rounded]="true" severity="danger" [text]="true"/> 
             </td>
         </tr>
     </ng-template>

@@ -1,0 +1,9 @@
+<div *ngIf = "this.control?.touched" class="flex flex-column text-red-400">
+    <small *ngIf="this.control?.hasError('required') ">El campo es obligatorio</small>
+    <small *ngIf="this.control?.hasError('maxlength') ">La longitud maxima es 4</small>
+    <small *ngIf="this.control?.hasError('minlength') ">La longitud minima es 4</small>
+    <small *ngIf="this.control?.hasError('email') ">El campo debe tener formato de email</small>
+    <small *ngIf="this.control?.hasError('pattern') ">El campo solo admite numeros</small>
+</div>
+
+<p class="m-0"></p>

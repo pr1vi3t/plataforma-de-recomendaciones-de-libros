@@ -1,55 +1,67 @@
 <div class="pl-5 pr-5">
-    <div class="grid">
-        <div class="col-12 lg:col-6 mt-5">
-            <p-floatLabel>
-                <input [disabled] = "isModoVer()" class="w-full" pInputText id="titulo" [(ngModel)]="libros.titulo" />
-                <label for="titulo">Título</label>
-            </p-floatLabel>
-        </div>  
-        <div class="col-12 lg:col-6 mt-5">
-            <p-floatLabel>
-                <input [disabled] = "isModoVer()" class="w-full" pInputText id="edicion" [(ngModel)]="libros.edicion" />
-                <label for="edicion">Edición</label>
-            </p-floatLabel>
+    <form [formGroup] = "libroForm" (ngSubmit) = "onSubmit()">
+        <div class="grid">
+            <div class="col-12 lg:col-6 mt-5">
+                <p-floatLabel>
+                    <input [disabled] = "isModoVer()" class="w-full" pInputText id="Titulo" formControlName="Titulo" />
+                    <label for="Titulo">Título</label>
+                </p-floatLabel>
+                <app-validator-form [control] = "this.libroForm.get('Titulo')"></app-validator-form>
+            </div>  
+            <div class="col-12 lg:col-6 mt-5">
+                <p-floatLabel>
+                    <input [disabled] = "isModoVer()" class="w-full" pInputText id="Edicion" formControlName="Edicion" />
+                    <label for="Edicion">Edición</label>
+                </p-floatLabel>
+                <app-validator-form [control] = "this.libroForm.get('Edicion')"></app-validator-form>
+            </div>
         </div>
-    </div>
+        
+        <div class="grid">
+            <div class="col-12 lg:col-6 mt-5">
+                <p-floatLabel>
+                    <input [disabled] = "isModoVer()" class="w-full" pInputText id="Paginas" formControlName="Paginas" />
+                    <label for="Paginas">Páginas</label>
+                </p-floatLabel>
+                <app-validator-form [control] = "this.libroForm.get('Paginas')"></app-validator-form>
+            </div>
+            <div class="col-12 lg:col-6 mt-5">
+                <p-floatLabel>
+                    <input [disabled] = "isModoVer()" class="w-full" pInputText id="IdAutor" formControlName="IdAutor" />
+                    <label for="IdAutor">ID Autor</label>
+                </p-floatLabel>
+                <app-validator-form [control] = "this.libroForm.get('IdAutor')"></app-validator-form>
+            </div>
+        </div>
     
-    <div class="grid">
-        <div class="col-12 lg:col-6 mt-5">
-            <p-floatLabel>
-                <input [disabled] = "isModoVer()" class="w-full" pInputText id="paginas" [(ngModel)]="libros.paginas" />
-                <label for="paginas">Páginas</label>
-            </p-floatLabel>
+        <div class="grid">
+            <div class="col-12 lg:col-6 mt-5">
+                <p-floatLabel>
+                    <input [disabled] = "isModoVer()" class="w-full" pInputText id="IdCategoria" formControlName="IdCategoria" />
+                    <label for="IdCategoria">ID Categoria</label>
+                </p-floatLabel>
+                <app-validator-form [control] = "this.libroForm.get('IdCategoria')"></app-validator-form>
+            </div>
+            <div class="col-12 lg:col-6 mt-5">
+                <p-floatLabel>
+                    <input [disabled] = "isModoVer()" class="w-full" pInputText id="IdIdioma" formControlName="IdIdioma" />
+                    <label for="IdIdioma">ID Idioma</label>
+                </p-floatLabel>
+                <app-validator-form [control] = "this.libroForm.get('IdIdioma')"></app-validator-form>
+            </div>
         </div>
-        <div class="col-12 lg:col-6 mt-5">
-            <p-floatLabel>
-                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idAutor" [(ngModel)]="libros.idAutor" />
-                <label for="idAutor">ID Autor</label>
-            </p-floatLabel>
+    
+        <div class="grid">
+            <div class="col-12 lg:col-12 mt-5">
+                <p-floatLabel>
+                    <input [disabled] = "isModoVer()" class="w-full" pInputText id="IdEditorial" formControlName="IdEditorial" />
+                    <label for="IdEditorial">ID Editorial</label>
+                </p-floatLabel>
+                <app-validator-form [control] = "this.libroForm.get('IdEditorial')"></app-validator-form>
+            </div>
         </div>
-    </div>
+        <p>Formulario Valido: {{libroForm.valid}} </p>
+        <button pButton type = "submit" label = "Guardar Temp" class="mt-4"></button>
+    </form>
 
-    <div class="grid">
-        <div class="col-12 lg:col-6 mt-5">
-            <p-floatLabel>
-                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idCategoria" [(ngModel)]="libros.idCategoria" />
-                <label for="idCategoria">ID Categoria</label>
-            </p-floatLabel>
-        </div>
-        <div class="col-12 lg:col-6 mt-5">
-            <p-floatLabel>
-                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idIdioma" [(ngModel)]="libros.idIdioma" />
-                <label for="idIdioma">ID Idioma</label>
-            </p-floatLabel>
-        </div>
-    </div>
-
-    <div class="grid">
-        <div class="col-12 lg:col-12 mt-5">
-            <p-floatLabel>
-                <input [disabled] = "isModoVer()" class="w-full" pInputText id="idEditorial" [(ngModel)]="libros.idEditorial" />
-                <label for="idEditorial">ID Editorial</label>
-            </p-floatLabel>
-        </div>
-    </div>
 </div>

@@ -1,2 +1,37 @@
-<h1>BIENVENIDOS A NUESTRA LIBRERIA VIRTUAL!</h1>
-<p>Esta es una página web orientada a la recomendación de libros clásicos</p>
+
+    <h1>Bienvenido, {{ userName }}</h1>
+<div class = "grid">
+        <div class="col lg:col-2">
+            
+        </div>
+        <div class="col-12 lg:col-8">
+            <h1 class="asd" [ngStyle]="{ 'font-size': '3.2rem', 'margin-top': '50px' }">
+                ¡BIENVENIDOS A NUESTRA LIBRERÍA VIRTUAL!</h1>
+            <p class="asd">
+                Esta es una página web orientada a la recomendación de libros clásicos
+            </p>
+            <div >
+                <p-galleria class="centrar"
+                [value]="images"
+                [responsiveOptions]="responsiveOptions"
+                [containerStyle]="{ 'max-width': '640px' }"
+                [numVisible]="5">
+                <ng-template pTemplate="header" >
+                    <h1 class="asd" style ="margin-top: 55px;" >
+                        NUESTROS LIBROS MAS POPULARES    
+                    </h1>
+                </ng-template>
+                  <ng-template pTemplate="item" let-item>
+                          <img [src]="item.itemImageSrc" style="max-width: 100%; max-height: 100%;" />
+                  </ng-template>
+                  <ng-template pTemplate="thumbnail" let-item>
+                      <div >
+                          <img [src]="item.thumbnailImageSrc" style="width: 100%; height: 125px;"/>
+                      </div>
+                  </ng-template>
+              </p-galleria>
+            </div>
+        </div>
+        
+</div>
+    

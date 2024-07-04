@@ -1,1 +1,68 @@
-<p>autores-listar works!</p>
+
+        <p-table
+        #tblAutoresListar
+        [value]="autores"
+        [paginator]="true"
+        [rows]="5"
+        [tableStyle]="{ 'min-width': '50rem' }"
+        [globalFilterFields]="['IdAutor', 'Nombres', 'ApellidoPaterno', 'ApellidoMaterno','Correo']"
+        [rowsPerPageOptions]="[5, 10, 20]"
+    >   
+
+    <ng-template pTemplate="caption">
+        <div class="flex justify-content-between">
+            <p-button (onClick)="onClickAgregarAutor()" label="Agregar" icon="pi pi-plus" severity="help" class="margen"/>
+
+            <p-iconField iconPosition="left" class="ml-auto">
+                <p-inputIcon>
+                            <i class="pi pi-search"></i>
+                </p-inputIcon>
+                <input 
+                pInputText 
+                type="text" 
+                (input)="applyFilterGlobal($event, 'contains')" 
+                placeholder="Barra de búsqueda" class="size"/>
+            </p-iconField>
+        </div>
+        </ng-template>
+    
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="IdAutor">IdAutor<p-sortIcon field="IdAutor"/></th>
+                <th pSortableColumn="Nombres">Nombres<p-sortIcon field="Nombres"/></th>
+                <th pSortableColumn="ApellidoPaterno">ApellidoPaterno<p-sortIcon field="ApellidoPaterno"/></th>
+                <th pSortableColumn="ApellidoMaterno">ApellidoMaterno<p-sortIcon field="ApellidoMaterno"/></th>
+                <th pSortableColumn="Correo">Correo<p-sortIcon field="Correo"/></th>
+                <th ></th>  
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-autor>
+            <tr>
+                <td>{{ autor.IdAutor }}</td>
+                <td>{{ autor.Nombres }}</td>
+                <td>{{ autor.ApellidoPaterno }}</td>
+                <td>{{ autor.ApellidoMaterno }}</td>
+                <td>{{ autor.Correo }}</td>
+                <td>
+                    <div class="grid">
+                        <div class="col-12 lg:col-4 ">
+                            <p-button (onClick)="onClickVerAutor(autor)" [style]="buttonStyle" icon="pi pi-eye"  [rounded]="true" severity="info" [text]="true"/>
+    
+                        </div>
+                        <div class="col-12 lg:col-4 ">
+                            <p-button (onClick)="onClickEditarAutor(autor)" [style]="buttonStyle" icon="pi pi-pencil" [rounded]="true" severity="warning" [text]="true"/>
+    
+                        </div>  
+                        <div class="col-12 lg:col-4 ">
+                            <p-button [style]="buttonStyle" icon="pi pi-trash" [rounded]="true" severity="danger" [text]="true"/> 
+    
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+    
+
+
+

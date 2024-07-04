@@ -1,0 +1,31 @@
+<div class="pl-5 pr-5">
+    <div class="grid">
+        <div class="col-12 lg:col-6 mt-5">
+            <p-floatLabel>
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="Nombres" [(ngModel)]="autores.Nombres" />
+                <label for="Nombres">Nombres</label>
+            </p-floatLabel>
+        </div>  
+        <div class="col-12 lg:col-6 mt-5">
+            <p-floatLabel>
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="ApellidoPaterno" [(ngModel)]="autores.ApellidoPaterno" />
+                <label for="ApellidoPaterno">Apellido Paterno</label>
+            </p-floatLabel>
+        </div>
+    </div>
+    
+    <div class="grid">
+        <div class="col-12 lg:col-6 mt-5">
+            <p-floatLabel>
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="ApellidoMaterno" [(ngModel)]="autores.ApellidoMaterno" />
+                <label for="ApellidoMaterno">Apellido Materno</label>
+            </p-floatLabel>
+        </div>
+        <div class="col-12 lg:col-6 mt-5">
+            <p-floatLabel>
+                <input [disabled] = "isModoVer()" class="w-full" pInputText id="Correo" [(ngModel)]="autores.Correo" />
+                <label for="Correo">Correo</label>
+            </p-floatLabel>
+        </div>
+    </div>
+</div>
