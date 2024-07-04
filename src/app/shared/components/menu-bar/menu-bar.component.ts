@@ -18,20 +18,21 @@ export class MenuBarComponent {
   itemsMenuBar: MenuItem[] | undefined;
   itemsMenuUsuario: MenuItem[] | undefined;
   userName: string = '';
-  profileImageUrl: string = '';
+  imagenPerfil: string = '';
 
   constructor(
     private googleApiService: GoogleApiService
     ){}
 
   async ngOnInit() {
+    
     try {
       const token = localStorage.getItem('googleAuthToken');
       if (token) {
         const userInfo = await this.googleApiService.getUserInfo(token);
         console.log(userInfo);
         this.userName = userInfo.name;
-        this.profileImageUrl = userInfo.picture; 
+        this.imagenPerfil = userInfo.picture; 
       } else {
         console.error('Token de autenticación no encontrado.');
       }

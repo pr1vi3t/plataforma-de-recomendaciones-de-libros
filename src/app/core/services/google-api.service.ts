@@ -26,5 +26,4 @@ export class GoogleApiService {
       const params = new URLSearchParams(hash);
       return params.get('access_token');
     }
-    
 }

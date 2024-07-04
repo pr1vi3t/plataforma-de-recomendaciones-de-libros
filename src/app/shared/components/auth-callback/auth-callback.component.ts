@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   
 })
 export class AuthCallbackComponent implements OnInit {
+  
   constructor(
     private router: Router,
     private googleApiService: GoogleApiService

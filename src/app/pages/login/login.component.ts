@@ -14,6 +14,7 @@ declare var google:any;
 export class LoginComponent {
 
   onLogin() {
+    
     const clientId = '609668435062-jf1alipdpsiqhm4p92f0qierg7f0hsle.apps.googleusercontent.com';
     const redirectUri = 'http://localhost:4200/auth-callback';
     const scope = 'https://www.googleapis.com/auth/userinfo.profile';
