@@ -6,7 +6,7 @@ import { lastValueFrom } from 'rxjs';
   providedIn: 'root'
 })
 export class GoogleApiService {
-  /*private clientId = '609668435062-jf1alipdpsiqhm4p92f0qierg7f0hsle.apps.googleusercontent.com';*/
+    private clientId = '609668435062-jf1alipdpsiqhm4p92f0qierg7f0hsle.apps.googleusercontent.com';
     private redirectUri = 'http://localhost:4200/auth-callback';
   
     constructor(private http: HttpClient) { }
